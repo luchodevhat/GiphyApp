@@ -1,19 +1,20 @@
 interface Props {
-    inputType: string;
-    placeHolder?: string;  // props pending
+    searches: string[];  // props pending
+    onSearch: (search: string) => void;
 }
 
-export const PreviousSearches = () => {
+export const PreviousSearches = ({searches, onSearch}: Props) => {
     return (
         <>
             <div className="previous-searches">
                 <h2>Busquedas previas</h2>
+
                 <ul className="previous-searches-list">
-                    <li>Goku</li>
-                    <li>Elden Ring</li>
-                    <li>Witcher</li>
-                    <li>Metal Gears</li>
-                    <li>Dragons Dogma</li>
+                    {searches.map((search) => (
+                        <li key={search} onClick={() => onSearch(search)}>
+                            {search}
+                        </li>
+                    ))}
                 </ul>
             </div>
         </>

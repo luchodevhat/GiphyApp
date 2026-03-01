@@ -1,14 +1,14 @@
-import { mockGifs } from "../mock-data/gifs.mock"
+import type { Gif } from "../mock-data/gifs.mock"
 
 interface Props {
-    gif?: []
+    gifs: Gif[]
 }
 
-export const GifList = (gif: Props) => {
+export const GifList = ({ gifs }: Props) => {
     return (
         <>
             <div className="gifs-container">
-                {mockGifs.map((gif) =>(
+                {gifs.map((gif) =>(
                     <div key={gif.id} className="gid-card">
                         <img src={gif.url} alt="gif.title" />
                         <h3>{gif.title}</h3>
