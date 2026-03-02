@@ -1,14 +1,9 @@
 // Interfaz temporal
 
-export interface Gif {
-    id: string;
-    title: string;
-    url: string;
-    width: number;
-    height: number;
-  }
+import type { Gif } from "../gifs/components/Interfaces/gif.interface";
   
   export const mockGifs: Gif[] = [
+
     {
       id: '1',
       title: "Superman's Cake",

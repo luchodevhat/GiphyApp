@@ -2,8 +2,9 @@ import { useState } from "react"
 import { mockGifs } from "./mock-data/gifs.mock"
 import { CustomHeader } from "./shared/components/customHeader"
 import { CustomSearch } from "./shared/components/customerSearch"
-import { PreviousSearches } from "./gifs/previousSearches"
-import { GifList } from "./gifs/gifList"
+import { PreviousSearches } from "./gifs/components/previousSearches"
+import { GifList } from "./gifs/components/gifList"
+import {GetGifsByQuery} from "./gifs/components/actions/get-gifs-by-query.action"
 
 export const GifsApp = () => {
 
@@ -13,9 +14,18 @@ export const GifsApp = () => {
         console.log(searches)
     }
     
-    const handleSearch = (query: string) => {
-        const term = query.trim().toLocaleLowerCase();
-        if (!term) return; // continuar aca
+    const handleSearch = async(query: string = '') => {
+        query = query.trim().toLowerCase()
+
+        if(query.length === 0) return;
+
+        if (searches.includes(query)) return;
+
+        if(searches.includes(query)) return;
+
+        setSearches([query, ...searches.splice(0, 7)]);
+
+        await GetGifsByQuery(query);
     }
     
 

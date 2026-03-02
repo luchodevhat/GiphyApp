@@ -12,6 +12,8 @@ export const CustomSearch = ({
     placeHolder,
     handleSearch = () => { },
 }: Props) => {
+
+    
     const [inputValue, setInputValue] = useState('')
 
     useEffect(() => {
