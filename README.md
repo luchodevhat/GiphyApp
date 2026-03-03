@@ -94,6 +94,11 @@ Mejorar manejo de errores
 
 Implementar testing con Jest o Vitest
 
+👨‍💻Imagenes
+<img width="1901" height="906" alt="image" src="https://github.com/user-attachments/assets/d1fad02d-341d-4a4c-abe3-80737d4d6cd7" />
+<img width="1894" height="899" alt="image" src="https://github.com/user-attachments/assets/b40ad8aa-6452-4ba3-af82-58bb24cefecb" />
+
+
 👨‍💻 Autor
 
 Desarrollado por Alejandro Alfaro
