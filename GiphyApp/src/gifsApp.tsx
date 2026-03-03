@@ -12,7 +12,9 @@ export const GifsApp = () => {
     const [gifs, setGifs] = useState<Gif[]>([])
 
     const handleTermClick = (search: string) => {
-        console.log(searches)
+        // when a previous term is clicked we could trigger a new search
+        console.log('term clicked:', search);
+        handleSearch(search);
     }
     
     const handleSearch = async(query: string = '') => {
@@ -22,12 +24,10 @@ export const GifsApp = () => {
 
         if (searches.includes(query)) return;
 
-        if(searches.includes(query)) return;
-
         setSearches([query, ...searches.splice(0, 7)]);
 
-    const gifs = await GetGifsByQuery(query);
-    setGifs(gifs);
+        const newGifs = await GetGifsByQuery(query);
+        setGifs(newGifs);
     }
     
 
