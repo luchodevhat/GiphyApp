@@ -1,14 +1,15 @@
 import { useState } from "react"
-import { mockGifs } from "./mock-data/gifs.mock"
 import { CustomHeader } from "./shared/components/customHeader"
 import { CustomSearch } from "./shared/components/customerSearch"
 import { PreviousSearches } from "./gifs/components/previousSearches"
 import { GifList } from "./gifs/components/gifList"
 import {GetGifsByQuery} from "./gifs/components/actions/get-gifs-by-query.action"
+import type { Gif } from "./gifs/components/Interfaces/gif.interface"
 
 export const GifsApp = () => {
 
-    const [searches, setSearches] = useState(['Goku', 'Elden Ring', 'Witcher', 'Metal Gears', 'Dragons Dogma'])
+    const [searches, setSearches] = useState<string[]>([])
+    const [gifs, setGifs] = useState<Gif[]>([])
 
     const handleTermClick = (search: string) => {
         console.log(searches)
@@ -25,7 +26,8 @@ export const GifsApp = () => {
 
         setSearches([query, ...searches.splice(0, 7)]);
 
-        await GetGifsByQuery(query);
+    const gifs = await GetGifsByQuery(query);
+    setGifs(gifs);
     }
     
 
@@ -41,7 +43,7 @@ export const GifsApp = () => {
             <PreviousSearches searches={searches} onSearch={handleTermClick} />
 
             {/* Gifs */}
-            <GifList gifs={mockGifs} />
+            <GifList gifs={gifs} />
 
         </>
     )
