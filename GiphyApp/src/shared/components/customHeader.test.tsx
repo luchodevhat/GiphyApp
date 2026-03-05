@@ -18,5 +18,4 @@ describe('customHeader', () => {
     render(<CustomHeader title="Test Title" />)
     expect(screen.queryByText('Test Description')).not.toBeInTheDocument()
     })
-
 })
